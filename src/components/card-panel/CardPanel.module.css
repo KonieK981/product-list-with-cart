@@ -1,0 +1,12 @@
+.panel {
+  display: flex;
+  justify-content: space-evenly;
+
+  button {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+  }
+}
