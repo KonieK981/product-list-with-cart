@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <main>
       {products.length > 0 ? (
         <Gallery products={products} />
       ) : (
@@ -25,7 +25,7 @@ function App() {
       )}
       <Cart />
       {<OrderModal />}
-    </>
+    </main>
   );
 }
 
