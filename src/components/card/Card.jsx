@@ -9,29 +9,23 @@ const Card = ({ product }) => {
   const { state, dispatch } = useCart();
 
   const active = state[product.name];
-  const color = !active ? "white" : colors["red"];
 
   const cardStyle = {
     backgroundImage: `url(${product.image.desktop})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    borderRadius: "10px",
-    paddindBottom: "1rem",
-    height: "145px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+    border: active ? `2px solid ${colors["red"]}` : "none",
   };
 
-  const btnStyles = {
-    backgroundColor: "transparent",
-    border: "none",
+  const btmStyles = {
+    backgroundColor: !active ? "white" : colors["red"],
+    border: !active ? `1px solid ${colors["rose-300"]}` : "none",
   };
 
   return (
     <div className={styles.card}>
       <div style={cardStyle} className={styles.cover}>
-        <div className={styles.bottomSide} style={{ backgroundColor: color }}>
+        <div className={styles.bottomSide} style={btmStyles}>
           {!active ? (
-            <Button stylesProp={btnStyles} id={product.name}>
+            <Button id={product.name}>
               <AddToCart />
               Add to Cart
             </Button>
@@ -41,9 +35,9 @@ const Card = ({ product }) => {
         </div>
       </div>
       <div className={styles.footer}>
-        <span className="blur-text">{product.category}</span>
-        <span className="strong-text">{product.name}</span>
-        <span className="price">${product.price}</span>
+        <span className={styles.blurText}>{product.category}</span>
+        <span className={styles.strongText}>{product.name}</span>
+        <span className={styles.price}>${product.price}</span>
       </div>
     </div>
   );

@@ -1,6 +1,9 @@
 .panel {
   display: flex;
+  width: 100%;
   justify-content: space-evenly;
+  color: white;
+  font-size: 0.8rem;
 
   button {
     width: 20px;
@@ -9,4 +12,18 @@
     color: white;
     border: none;
   }
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid white;
+}
+
+.indicator {
+  width: 20px;
 }

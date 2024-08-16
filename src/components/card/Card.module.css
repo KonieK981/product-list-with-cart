@@ -1,25 +1,32 @@
 .card {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
 
 .cover {
   border-radius: 10px;
-  border: solid 2px red;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 1rem;
+  height: 162px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .bottomSide {
   width: 110px;
-  height: 25px;
+  height: 22px;
   position: relative;
-  top: 18px;
+  top: 33px;
   padding: 5px;
   border-radius: 18px;
   transition: all 1s ease;
+  display: flex;
+  align-items: center;
 }
 
 .footer {
@@ -27,4 +34,21 @@
   display: flex;
   flex-direction: column;
   align-items: start;
+  gap: 3px;
+}
+
+.blurText {
+  font-size: 0.9rem;
+  filter: blur(0.4px);
+  color: var(--red-rose-500);
+}
+
+.strongText {
+  font-weight: 700;
+}
+
+.price {
+  color: var(--red);
+  font-weight: 700;
+  filter: blur(0.4px);
 }

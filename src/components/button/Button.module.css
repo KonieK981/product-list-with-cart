@@ -1,4 +1,8 @@
-.divs {
-  height: 100px;
-  background-color: red;
+.btn {
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }

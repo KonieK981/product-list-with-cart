@@ -4,7 +4,7 @@
     url("./assets/fonts/static/RedHatText-Regular.ttf");
 }
 :root {
-  --red-color: hsl(14, 86%, 42%);
+  --red: hsl(14, 86%, 42%);
   --red-green: hsl(159, 69%, 38%);
   --red-rose-50: hsl(20, 50%, 98%);
   --red-rose-100: hsl(13, 31%, 94%);
