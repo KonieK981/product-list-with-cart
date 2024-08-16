@@ -1,9 +1,16 @@
 import Button from "../button/Button";
 import styles from "./Card.module.css";
 import CardPanel from "./../card-panel/CardPanel";
+import AddToCart from "./../icons/AddToCart";
+import { useCart } from "../../hooks/useCart";
+import { colors } from "./../../values/colors";
 
 const Card = ({ product }) => {
-  const color = "white";
+  const { state, dispatch } = useCart();
+
+  const active = state[product.name];
+  const color = !active ? "white" : colors["red"];
+
   const cardStyle = {
     backgroundImage: `url(${product.image.desktop})`,
     backgroundSize: "cover",
@@ -14,14 +21,23 @@ const Card = ({ product }) => {
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
   };
 
-  const btnStyles = { backgroundColor: "transparent", border: "none" };
+  const btnStyles = {
+    backgroundColor: "transparent",
+    border: "none",
+  };
 
   return (
     <div className={styles.card}>
       <div style={cardStyle} className={styles.cover}>
         <div className={styles.bottomSide} style={{ backgroundColor: color }}>
-          {/* <Button stylesProp={btnStyles}>Add to Cart</Button> */}
-          <CardPanel />
+          {!active ? (
+            <Button stylesProp={btnStyles} id={product.name}>
+              <AddToCart />
+              Add to Cart
+            </Button>
+          ) : (
+            <CardPanel id={product.name} />
+          )}
         </div>
       </div>
       <div className={styles.footer}>

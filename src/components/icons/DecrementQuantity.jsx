@@ -1,5 +1,4 @@
-import * as React from "react";
-const SvgComponent = (props) => (
+const DecrementQuantity = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={10}
@@ -10,4 +9,4 @@ const SvgComponent = (props) => (
     <path fill="#fff" d="M0 .375h10v1.25H0V.375Z" />
   </svg>
 );
-export default SvgComponent;
+export default DecrementQuantity;

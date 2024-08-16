@@ -6,7 +6,6 @@
 .cover {
   border-radius: 10px;
   border: solid 2px red;
-  margin-bottom: 1rem;
   position: relative;
   display: flex;
   justify-content: center;
@@ -14,14 +13,17 @@
 }
 
 .bottomSide {
+  width: 110px;
+  height: 25px;
   position: relative;
   top: 18px;
-  width: 100px;
   padding: 5px;
   border-radius: 18px;
+  transition: all 1s ease;
 }
 
 .footer {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: start;
