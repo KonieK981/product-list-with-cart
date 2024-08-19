@@ -1,4 +1,4 @@
-import { createContext, useReducer, useContext } from "react";
+import { createContext, useState, useReducer, useContext } from "react";
 
 const CartContext = createContext();
 
@@ -18,9 +18,12 @@ const reducer = (state, action) => {
 
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {});
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
+    <CartContext.Provider
+      value={{ state, dispatch, isModalOpen, setIsModalOpen }}
+    >
       {children}
     </CartContext.Provider>
   );

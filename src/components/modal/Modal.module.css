@@ -1,0 +1,18 @@
+.modal_backdrop {
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.modal {
+  background-color: #ffff;
+  border-radius: 10px;
+  height: 400px;
+  width: 100%;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+}

@@ -1,5 +1,75 @@
-.divs {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+.orderContainer {
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 10px;
+}
+
+.order {
+  max-width: 360px;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 380px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  h2 {
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--red-rose-300);
+  }
+}
+
+.itemsContainer {
+  background-color: var(--red-rose-50);
+  padding: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+h3 {
+  margin: 0;
+  color: var(--red);
+  font-weight: 900;
+  text-align: start;
+}
+
+.order__footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  span:nth-child(1) {
+    font-size: 0.7rem;
+    color: var(--red-rose-900);
+  }
+
+  span:nth-child(2) {
+    font-weight: 900;
+  }
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__footer_middle {
+  background-color: var(--red-rose-50);
+
+  svg {
+    top: 4px;
+    position: relative;
+    margin-right: 10px;
+  }
 }

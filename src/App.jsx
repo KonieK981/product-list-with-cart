@@ -4,9 +4,12 @@ import Gallery from "./components/gallery/Gallery";
 import data from "../data.json";
 import Cart from "./components/cart/Cart";
 import OrderModal from "./components/order-modal/OrderModal";
+import { useCart } from "./hooks/useCart";
+import Modal from "./components/modal/Modal";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const { isModalOpen } = useCart();
 
   useEffect(() => {
     const getData = async () => {
@@ -24,7 +27,11 @@ function App() {
         <h3>No hay productos disponibles</h3>
       )}
       <Cart />
-      {<OrderModal />}
+      {isModalOpen && (
+        <Modal>
+          <OrderModal />
+        </Modal>
+      )}
     </main>
   );
 }

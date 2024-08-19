@@ -1,0 +1,7 @@
+.empty {
+  p {
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: var(--red-rose-400);
+  }
+}

@@ -25,7 +25,12 @@ const Card = ({ product }) => {
       <div style={cardStyle} className={styles.cover}>
         <div className={styles.bottomSide} style={btmStyles}>
           {!active ? (
-            <Button id={product.name}>
+            <Button
+              id={product.name}
+              handleClick={() =>
+                dispatch({ type: "increment", payload: product.name })
+              }
+            >
               <AddToCart />
               Add to Cart
             </Button>
