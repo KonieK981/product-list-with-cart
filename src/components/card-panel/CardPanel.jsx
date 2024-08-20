@@ -9,15 +9,15 @@ const CardPanel = ({ id }) => {
 
   return (
     <div className={styles.panel}>
-      <button onClick={() => dispatch({ type: "increment", payload: id })}>
-        <div className={styles.circle}>
-          <IncrementQuantity />
-        </div>
-      </button>
-      <div className={styles.indicator}>{state[id]}</div>
       <button onClick={() => dispatch({ type: "decrement", payload: id })}>
         <div className={styles.circle}>
           <DecrementQuantity />
+        </div>
+      </button>
+      <div className={styles.indicator}>{state[id]}</div>
+      <button onClick={() => dispatch({ type: "increment", payload: id })}>
+        <div className={styles.circle}>
+          <IncrementQuantity />
         </div>
       </button>
     </div>

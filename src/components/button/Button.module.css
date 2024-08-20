@@ -1,8 +1,13 @@
 .btn {
-  width: 100%;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: transparent;
   border: none;
+  display: flex;
+  font-family: "RedHatText-SB";
+  justify-content: center;
+  width: 100%;
+
+  svg {
+    margin-right: 0.2rem;
+  }
 }

@@ -4,28 +4,41 @@ import CardPanel from "./../card-panel/CardPanel";
 import AddToCart from "./../icons/AddToCart";
 import { useCart } from "../../hooks/useCart";
 import { colors } from "./../../values/colors";
+import { useState } from "react";
 
 const Card = ({ product }) => {
   const { state, dispatch } = useCart();
+  const [isHover, setIsHover] = useState(false);
 
   const active = state[product.name];
 
   const cardStyle = {
     backgroundImage: `url(${product.image.desktop})`,
-    border: active ? `2px solid ${colors["red"]}` : "none",
+    outline: active ? `2px solid ${colors["red"]}` : "none",
   };
 
   const btmStyles = {
     backgroundColor: !active ? "white" : colors["red"],
-    border: !active ? `1px solid ${colors["rose-300"]}` : "none",
+    border:
+      !active && isHover
+        ? `2px solid ${colors["red"]}`
+        : !active
+        ? `2px solid ${colors["rose-300"]}`
+        : "none",
   };
 
   return (
     <div className={styles.card}>
       <div style={cardStyle} className={styles.cover}>
-        <div className={styles.bottomSide} style={btmStyles}>
+        <div
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+          className={styles.bottomSide}
+          style={btmStyles}
+        >
           {!active ? (
             <Button
+              type="outline"
               id={product.name}
               handleClick={() =>
                 dispatch({ type: "increment", payload: product.name })
@@ -42,7 +55,7 @@ const Card = ({ product }) => {
       <div className={styles.footer}>
         <span className={styles.blurText}>{product.category}</span>
         <span className={styles.strongText}>{product.name}</span>
-        <span className={styles.price}>${product.price}</span>
+        <span className={styles.price}>${product.price.toFixed(2)}</span>
       </div>
     </div>
   );

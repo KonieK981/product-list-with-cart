@@ -9,31 +9,22 @@ import { colors } from "./../../values/colors";
 
 const btnStyles = {
   backgroundColor: colors["red"],
-  color: colors["white"],
-  width: "100%",
   borderRadius: "20px",
-  padding: "1rem",
+  color: colors["white"],
   filter: "1px",
+  padding: ".8rem",
+  width: "100%",
 };
 
 const Cart = () => {
-  const { state, setIsModalOpen } = useCart();
-
-  const getCounter = () => {
-    if (!state) return "0";
-    let count = 0;
-    for (let elem in state) {
-      count += state[elem];
-    }
-    return count;
-  };
-
-  const counter = getCounter();
+  const { state, counter, totalAmount, setIsModalOpen } = useCart();
 
   return (
     <div className={styles.cart}>
       <div className={styles.innerCart}>
-        <h3>Your Cart({counter})</h3>
+        <h3>
+          Your Cart <span>({counter})</span>
+        </h3>
         {counter <= 0 ? (
           <EmptyCart />
         ) : (
@@ -54,7 +45,7 @@ const Cart = () => {
           <div className={styles.cart__footer}>
             <div className={styles.order}>
               <span>Order Total</span>
-              <span>$46.50</span>
+              <span>${totalAmount}</span>
             </div>
             <div className={styles.cart__footer_middle}>
               <p>
@@ -63,6 +54,7 @@ const Cart = () => {
               </p>
             </div>
             <Button
+              type="filled"
               stylesProp={btnStyles}
               handleClick={() => setIsModalOpen(true)}
             >

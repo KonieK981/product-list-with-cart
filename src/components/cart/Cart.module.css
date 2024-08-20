@@ -1,22 +1,24 @@
 .cart {
-  margin-top: 2rem;
-  width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+  align-self: start;
 }
 
 .innerCart {
   background-color: var(--white);
   border-radius: 10px;
   max-width: 360px;
-  width: 100%;
   padding: 0.9rem 1rem;
+  width: 100%;
 }
 
 h3 {
-  margin: 0;
   color: var(--red);
-  font-weight: 900;
+  font-family: "RedHatText-Bold";
+  font-size: 1.2rem;
+  margin: 0;
   text-align: start;
 }
 
@@ -30,24 +32,34 @@ h3 {
 .order {
   display: flex;
   justify-content: space-between;
+  font-size: 1rem;
 
   span:nth-child(1) {
     color: var(--red-rose-500);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    letter-spacing: -0.3px;
   }
   span:nth-child(2) {
     color: var(--red-rose-900);
-    font-size: 1.3rem;
-    font-weight: 900;
+    font-size: 1.1rem;
+    font-family: "RedHatText-Bold";
   }
 }
 
 .cart__footer_middle {
   background-color: var(--red-rose-50);
+  color: var(--red-rose-500);
+  font-family: "RedHatText-SB";
+  font-size: 0.9rem;
 
   svg {
-    top: 4px;
-    position: relative;
     margin-right: 10px;
+    position: relative;
+    top: 4px;
+  }
+
+  b {
+    color: var(--red-rose-900);
+    font-family: "RedHatText-Bold";
   }
 }

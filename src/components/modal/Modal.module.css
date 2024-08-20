@@ -10,9 +10,21 @@
 .modal {
   background-color: #ffff;
   border-radius: 10px;
-  height: 400px;
   width: 100%;
   padding: 0;
   position: absolute;
   bottom: 0;
+}
+
+@media (min-width: 500px) {
+  .modal_backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal {
+    max-width: 420px;
+    bottom: auto;
+  }
 }

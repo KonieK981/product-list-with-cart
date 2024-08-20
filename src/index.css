@@ -1,8 +1,21 @@
 @font-face {
-  font-family: "RedHatText";
+  font-family: "RedHatText-Regular";
   src: local("RedHatText-Regular"),
     url("./assets/fonts/static/RedHatText-Regular.ttf");
 }
+
+@font-face {
+  font-family: "RedHatText-Bold";
+  src: local("RedHatText-Bold"),
+    url("./assets/fonts/static/RedHatText-Bold.ttf");
+}
+
+@font-face {
+  font-family: "RedHatText-SB";
+  src: local("RedHatText-SemiBold"),
+    url("./assets/fonts/static/RedHatText-SemiBold.ttf");
+}
+
 :root {
   --white: white;
   --red: hsl(14, 86%, 42%);
@@ -14,7 +27,7 @@
   --red-rose-500: hsl(12, 20%, 44%);
   --red-rose-900: hsl(14, 65%, 9%);
 
-  font-family: RedHatText, sans-serif;
+  font-family: RedHatText-Regular, sans-serif;
   font-size: 16px;
   background-color: var(--red-rose-50);
   /* line-height: 1.5;

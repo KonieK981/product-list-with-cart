@@ -1,6 +1,5 @@
 import styles from "./OrderModal.module.css";
 import { useCart } from "../../hooks/useCart";
-import EmptyCart from "../empty-cart/EmptyCart";
 import data from "../../../data.json";
 import Button from "./../button/Button";
 import { colors } from "./../../values/colors";
@@ -18,7 +17,7 @@ const btnStyles = {
 };
 
 const OrderModal = () => {
-  const { state, setIsModalOpen } = useCart();
+  const { state, totalAmount, setIsModalOpen } = useCart();
   const { isModalOpen } = useCart();
   const modalRef = useRef(null);
 
@@ -67,13 +66,18 @@ const OrderModal = () => {
           })}
           <div className={styles.order__footer}>
             <span>Order Total</span>
-            <span>$46.50</span>
+            <span>${totalAmount}</span>
           </div>
         </div>
-
-        <Button stylesProp={btnStyles} onClick={() => setIsModalOpen(true)}>
-          Start New Order
-        </Button>
+        <div>
+          <Button
+            type="filled"
+            stylesProp={btnStyles}
+            onClick={() => setIsModalOpen(true)}
+          >
+            Start New Order
+          </Button>
+        </div>
       </div>
     </div>
   );

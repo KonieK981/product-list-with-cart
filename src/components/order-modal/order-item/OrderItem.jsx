@@ -8,11 +8,11 @@ const OrderItem = ({ count, price, name, img }) => {
         <h5> {name}</h5>
         <div>
           <span className={styles.counter}>{count}x</span>
-          <span className={styles.price}>@ ${price}</span>
+          <span className={styles.price}>@ ${price.toFixed(2)}</span>
         </div>
       </div>
       <div className={styles.iconCart}>
-        <span className={styles.ammount}>${price * count}</span>
+        <span className={styles.ammount}>${(price * count).toFixed(2)}</span>
       </div>
     </li>
   );

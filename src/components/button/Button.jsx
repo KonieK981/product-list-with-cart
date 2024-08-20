@@ -1,15 +1,30 @@
-import { useCart } from "./../../hooks/useCart";
 import styles from "./Button.module.css";
+import { useState } from "react";
+import { colors } from "./../../values/colors";
 
-const Button = ({ children, stylesProp, id, handleClick }) => {
-  const { state, dispatch } = useCart();
+const Button = ({ children, type, stylesProp, handleClick }) => {
+  const [isHover, setIsHover] = useState(false);
+
+  const propValue =
+    type === "filled" && isHover
+      ? {
+          backgroundColor: colors["red-strong"],
+        }
+      : type === "outline" && isHover
+      ? {
+          color: colors["red"],
+        }
+      : {};
+
+  const stylesBtn = { ...stylesProp, ...propValue };
 
   return (
     <button
-      style={stylesProp}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+      style={stylesBtn}
       className={styles.btn}
       onClick={handleClick}
-      // onClick={() => dispatch({ type: "increment", payload: id })}
     >
       {children}
     </button>
