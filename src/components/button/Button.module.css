@@ -6,6 +6,7 @@
   font-family: "RedHatText-SB";
   justify-content: center;
   width: 100%;
+  height: 40px;
 
   svg {
     margin-right: 0.2rem;

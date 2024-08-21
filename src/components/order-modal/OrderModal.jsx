@@ -5,7 +5,8 @@ import Button from "./../button/Button";
 import { colors } from "./../../values/colors";
 import OrderItem from "./order-item/OrderItem";
 import Check from "./../icons/Check";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { useOutsideClick } from "./../../hooks/useOutSideClick";
 
 const btnStyles = {
   backgroundColor: colors["red"],
@@ -17,27 +18,21 @@ const btnStyles = {
 };
 
 const OrderModal = () => {
-  const { state, totalAmount, setIsModalOpen } = useCart();
+  const { state, totalAmount, setIsModalOpen, dispatch } = useCart();
   const { isModalOpen } = useCart();
   const modalRef = useRef(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setIsModalOpen(false);
-      }
-    };
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
 
-    if (isModalOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+  const handleReset = () => {
+    console.log("first");
+    dispatch({ type: "reset" });
+    setIsModalOpen(false);
+  };
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isModalOpen, setIsModalOpen]); // added dependencies to useEffect
+  useOutsideClick(modalRef, isModalOpen, handleClose);
 
   if (!isModalOpen) return null;
 
@@ -73,7 +68,7 @@ const OrderModal = () => {
           <Button
             type="filled"
             stylesProp={btnStyles}
-            onClick={() => setIsModalOpen(true)}
+            handleClick={handleReset}
           >
             Start New Order
           </Button>

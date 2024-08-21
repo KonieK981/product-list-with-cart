@@ -2,7 +2,9 @@
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 275px));
-  justify-content: center;
+  justify-content: space-evenly;
+
+  width: 100%;
 }
 
 h1 {

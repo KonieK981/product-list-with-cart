@@ -5,15 +5,17 @@ import AddToCart from "./../icons/AddToCart";
 import { useCart } from "../../hooks/useCart";
 import { colors } from "./../../values/colors";
 import { useState } from "react";
+import { useResponsiveImg } from "../../hooks/useResponsiveImg";
 
 const Card = ({ product }) => {
-  const { state, dispatch } = useCart();
   const [isHover, setIsHover] = useState(false);
+  const { state, dispatch } = useCart();
+  const { src } = useResponsiveImg();
 
   const active = state[product.name];
 
   const cardStyle = {
-    backgroundImage: `url(${product.image.desktop})`,
+    backgroundImage: `url(${product.image[src]})`,
     outline: active ? `2px solid ${colors["red"]}` : "none",
   };
 

@@ -8,23 +8,14 @@ import { useCart } from "./hooks/useCart";
 import Modal from "./components/modal/Modal";
 
 function App() {
-  const [products, setProducts] = useState([]);
-  const { isModalOpen } = useCart();
-
-  useEffect(() => {
-    const getData = async () => {
-      const list = await data;
-      setProducts(list);
-    };
-    getData();
-  }, []);
+  const { isModalOpen, products } = useCart();
 
   return (
     <main>
       {products.length > 0 ? (
         <Gallery products={products} />
       ) : (
-        <h3>No hay productos disponibles</h3>
+        <h3>There are no products available</h3>
       )}
       <Cart />
       {isModalOpen && (

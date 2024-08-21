@@ -26,6 +26,9 @@ const reducer = (state, action) => {
     delete filtered[item];
     return filtered;
   }
+  if (action.type === "reset") {
+    return {};
+  }
   return state;
 };
 
