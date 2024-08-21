@@ -15,8 +15,8 @@ const Card = ({ product }) => {
   const active = state[product.name];
 
   const cardStyle = {
-    // backgroundImage: `url(${product.image[src]})`,
-    backgroundImage: `url("/assets/images/favicon-32x32.png")`,
+    backgroundImage: `url(${product.image[src]})`,
+    // backgroundImage: `url("/assets/images/favicon-32x32.png")`,
     outline: active ? `2px solid ${colors["red"]}` : "none",
   };
 
